@@ -46,7 +46,32 @@ Given any 3 of these variables, solve for the 4th:
 - "If I make $X/year part-time, how much less do I need saved?"
 
 ## Implementation Priority
-1. Simple compound interest calculator (IN PROGRESS)
+1. ✅ Simple compound interest calculator (DONE)
 2. Core FIRE formula solver
 3. Visualizations for key insights
 4. Additional scenarios as needed
+
+## UX/QOL Enhancements
+
+### Phase 1 (IN PROGRESS)
+- ✅ Parameter cache with defaults (in-memory)
+- ✅ Summary + Edit specific fields
+- ✅ Better exit instructions
+
+### Phase 2 (Future)
+- "What if" quick edits after calculation
+  - "What if you doubled your contribution?"
+  - "What if you started with 2x principal?"
+  - "What if return was 5% instead of 7%?"
+- Comparison mode - side-by-side scenarios
+- Export results to CSV/JSON
+- Visual improvements:
+  - Show percentage of portfolio that's interest vs contributions
+  - Show "money working for you" vs "money you put in"
+  - Add milestones: "You'll hit $X in month Y"
+
+### Phase 3 (Future)
+- Quick presets: "First time buyer", "Retirement planning", etc.
+- Save/load named scenarios
+- Smart defaults based on inputs
+- Better input validation with helpful messages and examples
