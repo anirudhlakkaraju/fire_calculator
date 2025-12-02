@@ -29,7 +29,7 @@ class CompoundInterestInput:
     months: int = 0
     monthly_contribution: float = 0
     annual_contribution: float = 0
-    compounding_frequency: CompoundingFrequency = CompoundingFrequency.MONTHLY
+    compounding_frequency: CompoundingFrequency = CompoundingFrequency.ANNUALLY
 
     @property
     def total_periods(self) -> float:
