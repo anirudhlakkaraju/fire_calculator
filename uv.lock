@@ -3,10 +3,12 @@ revision = 3
 requires-python = ">=3.12"
 
 [[package]]
-name = "fire-calculator"
+name = "firefly"
 version = "0.1.0"
 source = { editable = "." }
-dependencies = [
+
+[package.optional-dependencies]
+cli = [
     { name = "plotext" },
     { name = "questionary" },
     { name = "rich" },
@@ -19,10 +21,11 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "plotext", specifier = ">=5.3.2" },
-    { name = "questionary", specifier = ">=2.1.1" },
-    { name = "rich", specifier = ">=14.2.0" },
+    { name = "plotext", marker = "extra == 'cli'", specifier = ">=5.3.2" },
+    { name = "questionary", marker = "extra == 'cli'", specifier = ">=2.1.1" },
+    { name = "rich", marker = "extra == 'cli'", specifier = ">=14.2.0" },
 ]
+provides-extras = ["cli", "api"]
 
 [package.metadata.requires-dev]
 dev = [{ name = "ruff", specifier = ">=0.14.7" }]

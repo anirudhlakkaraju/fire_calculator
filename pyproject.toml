@@ -1,20 +1,24 @@
 [project]
-name = "fire-calculator"
+name = "firefly"
 version = "0.1.0"
-description = "FIRE (Financial Independence, Retire Early) calculator with compound interest and visualizations"
+description = "Firefly - Financial Independence calculator with compound interest, visualizations, and FIRE planning tools"
 readme = "README.md"
 authors = [
     { name = "anirudhlakkaraju", email = "lakanirudh123@gmail.com" }
 ]
 requires-python = ">=3.12"
-dependencies = [
+dependencies = []
+
+[project.optional-dependencies]
+cli = [
     "plotext>=5.3.2",
     "questionary>=2.1.1",
     "rich>=14.2.0",
 ]
+api = []
 
 [project.scripts]
-fire-calc = "fire_calculator.cli.compound_interest_cli:main"
+firefly = "firefly.cli:main"
 
 [build-system]
 requires = ["uv_build>=0.9.9,<0.10.0"]
