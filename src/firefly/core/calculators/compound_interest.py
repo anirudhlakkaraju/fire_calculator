@@ -1,7 +1,6 @@
 """Compound interest calculator implementation."""
 
-
-from fire_calculator.models.compound_interest import (
+from firefly.core.models.compound_interest import (
     CompoundInterestInput,
     CompoundInterestResult,
     YearlyBreakdown,

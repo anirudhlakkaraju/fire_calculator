@@ -4,7 +4,7 @@ import plotext as plt
 from rich.console import Console
 from rich.table import Table
 
-from fire_calculator.models.compound_interest import CompoundInterestResult
+from firefly.core.models.compound_interest import CompoundInterestResult
 
 
 class CompoundInterestVisualizer:
