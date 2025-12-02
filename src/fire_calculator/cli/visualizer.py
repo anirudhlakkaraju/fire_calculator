@@ -29,18 +29,14 @@ class CompoundInterestVisualizer:
         table.add_row("Compounding", params.compounding_frequency.name.title())
 
         if params.monthly_contribution > 0:
-            table.add_row(
-                "Monthly Contribution", f"${params.monthly_contribution:,.2f}"
-            )
+            table.add_row("Monthly Contribution", f"${params.monthly_contribution:,.2f}")
         if params.annual_contribution > 0:
             table.add_row("Annual Contribution", f"${params.annual_contribution:,.2f}")
 
         table.add_section()
 
         # Results
-        table.add_row(
-            "Final Amount", f"${result.final_amount:,.2f}", style="bold green"
-        )
+        table.add_row("Final Amount", f"${result.final_amount:,.2f}", style="bold green")
         table.add_row("Total Contributions", f"${result.total_contributions:,.2f}")
         table.add_row(
             "Total Interest Earned",
@@ -142,7 +138,7 @@ class CompoundInterestVisualizer:
                 cumulative_contrib += monthly_contribution
             elif n == 365:  # Daily compounding
                 # Compound daily for ~30 days
-                for day in range(30):
+                for _ in range(30):
                     balance += balance * (r / 365)
                     balance += monthly_contribution / 30
                     cumulative_contrib += monthly_contribution / 30
@@ -162,9 +158,7 @@ class CompoundInterestVisualizer:
 
         return {"months": months, "balances": balances, "contributions": contributions}
 
-    def display_all(
-        self, result: CompoundInterestResult, show_yearly: bool = False
-    ) -> None:
+    def display_all(self, result: CompoundInterestResult, show_yearly: bool = False) -> None:
         """Display all visualizations."""
         self.console.print()
         self.display_summary(result)

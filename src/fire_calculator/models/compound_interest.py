@@ -1,11 +1,12 @@
 """Data models for compound interest calculations."""
+
 from dataclasses import dataclass
 from enum import Enum
-from typing import List
 
 
 class CompoundingFrequency(Enum):
     """Frequency of compounding."""
+
     DAILY = 365
     MONTHLY = 12
     ANNUALLY = 1
@@ -13,6 +14,7 @@ class CompoundingFrequency(Enum):
 
 class ContributionFrequency(Enum):
     """Frequency of contributions."""
+
     MONTHLY = 12
     ANNUALLY = 1
 
@@ -20,6 +22,7 @@ class ContributionFrequency(Enum):
 @dataclass
 class CompoundInterestInput:
     """Input parameters for compound interest calculation."""
+
     principal: float
     annual_rate: float  # as percentage, e.g., 7 for 7%
     years: int
@@ -42,6 +45,7 @@ class CompoundInterestInput:
 @dataclass
 class YearlyBreakdown:
     """Breakdown for a specific year."""
+
     year: int
     starting_balance: float
     contributions: float
@@ -52,8 +56,9 @@ class YearlyBreakdown:
 @dataclass
 class CompoundInterestResult:
     """Result of compound interest calculation."""
+
     final_amount: float
     total_contributions: float
     total_interest: float
-    yearly_breakdown: List[YearlyBreakdown]
+    yearly_breakdown: list[YearlyBreakdown]
     input_params: CompoundInterestInput

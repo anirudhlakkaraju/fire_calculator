@@ -1,5 +1,6 @@
 """Compound interest calculator implementation."""
-from typing import List
+
+
 from fire_calculator.models.compound_interest import (
     CompoundInterestInput,
     CompoundInterestResult,
@@ -22,7 +23,7 @@ class CompoundInterestCalculator:
         - r = annual interest rate (decimal)
         - n = compounding frequency per year
         - t = time in years
-        - PMT = periodic payment
+        - PMT = periodic contribution
         """
         yearly_breakdown = self._calculate_yearly_breakdown(params)
 
@@ -38,7 +39,7 @@ class CompoundInterestCalculator:
             input_params=params,
         )
 
-    def _calculate_yearly_breakdown(self, params: CompoundInterestInput) -> List[YearlyBreakdown]:
+    def _calculate_yearly_breakdown(self, params: CompoundInterestInput) -> list[YearlyBreakdown]:
         """Calculate year-by-year breakdown."""
         breakdown = []
         balance = params.principal
@@ -81,7 +82,7 @@ class CompoundInterestCalculator:
                 break
 
             # Calculate each period within the year
-            for period in range(periods_this_year):
+            for _ in range(periods_this_year):
                 # Add interest
                 period_interest = balance * (r / n)
                 balance += period_interest
@@ -93,12 +94,14 @@ class CompoundInterestCalculator:
 
             ending_balance = balance
 
-            breakdown.append(YearlyBreakdown(
-                year=year,
-                starting_balance=starting_balance,
-                contributions=year_contributions,
-                interest_earned=year_interest,
-                ending_balance=ending_balance,
-            ))
+            breakdown.append(
+                YearlyBreakdown(
+                    year=year,
+                    starting_balance=starting_balance,
+                    contributions=year_contributions,
+                    interest_earned=year_interest,
+                    ending_balance=ending_balance,
+                )
+            )
 
         return breakdown
