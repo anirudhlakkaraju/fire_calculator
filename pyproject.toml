@@ -1,17 +1,28 @@
 [project]
 name = "fire-calculator"
 version = "0.1.0"
-description = "Add your description here"
+description = "FIRE (Financial Independence, Retire Early) calculator with compound interest and visualizations"
 readme = "README.md"
 authors = [
     { name = "anirudhlakkaraju", email = "lakanirudh123@gmail.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "plotext>=5.3.2",
+    "questionary>=2.1.1",
+    "rich>=14.2.0",
+]
 
 [project.scripts]
-fire-calculator = "fire_calculator:main"
+fire-calc = "fire_calculator.cli.compound_interest_cli:main"
 
 [build-system]
 requires = ["uv_build>=0.9.9,<0.10.0"]
 build-backend = "uv_build"
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+executionEnvironments = [
+    { root = "src" }
+]
