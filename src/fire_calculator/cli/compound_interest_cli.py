@@ -3,14 +3,9 @@
 import questionary
 from questionary import Style
 
-from fire_calculator.calculators.compound_interest_calculator import (
-    CompoundInterestCalculator,
-)
+from fire_calculator.calculators.compound_interest_calculator import CompoundInterestCalculator
 from fire_calculator.cli.visualizer import CompoundInterestVisualizer
-from fire_calculator.models.compound_interest import (
-    CompoundingFrequency,
-    CompoundInterestInput,
-)
+from fire_calculator.models.compound_interest import CompoundingFrequency, CompoundInterestInput
 
 custom_style = Style(
     [
@@ -119,7 +114,7 @@ class CompoundInterestCLI:
             # Compounding frequency
             compounding = questionary.select(
                 "Compounding frequency:",
-                choices=["Monthly", "Annually", "Daily"],
+                choices=["Annually", "Monthly", "Daily"],
                 style=custom_style,
             ).ask()
 
