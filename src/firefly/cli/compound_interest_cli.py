@@ -7,13 +7,8 @@ from rich.panel import Panel
 from rich.table import Table
 
 from firefly.cli.visualizer import CompoundInterestVisualizer
-from firefly.core.calculators.compound_interest_calculator import (
-    CompoundInterestCalculator,
-)
-from firefly.core.models.compound_interest import (
-    CompoundingFrequency,
-    CompoundInterestInput,
-)
+from firefly.core.calculators.compound_interest import CompoundInterestCalculator
+from firefly.core.models.compound_interest import CompoundingFrequency, CompoundInterestInput
 
 custom_style = Style(
     [
