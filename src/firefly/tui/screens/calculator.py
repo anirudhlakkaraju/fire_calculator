@@ -45,7 +45,7 @@ class CalculatorScreen(Screen):
     annual_rate = reactive(7.0)
     years = reactive(10)
     months = reactive(0)
-    monthly_contribution = reactive(500.0)
+    monthly_contribution = reactive(0.0)
     annual_contribution = reactive(0.0)
     compounding_frequency = reactive(CompoundingFrequency.ANNUALLY)
 
