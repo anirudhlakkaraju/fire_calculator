@@ -1,9 +1,8 @@
 """Calculator screen - main tab for compound interest calculations."""
 
 from textual.app import ComposeResult
-from textual.containers import Horizontal
+from textual.containers import Horizontal, Vertical
 from textual.reactive import reactive
-from textual.screen import Screen
 
 from firefly.core.calculators.compound_interest import CompoundInterestCalculator
 from firefly.core.models.compound_interest import CompoundingFrequency, CompoundInterestInput
@@ -12,8 +11,8 @@ from firefly.tui.widgets.input_panel import InputPanel
 from firefly.tui.widgets.stats_bar import StatsBar
 
 
-class CalculatorScreen(Screen):
-    """Main calculator screen with split layout."""
+class CalculatorScreen(Vertical):
+    """Main calculator widget with split layout."""
 
     CSS = """
     CalculatorScreen {
@@ -62,7 +61,7 @@ class CalculatorScreen(Screen):
         yield StatsBar(id="stats_bar")
 
     def on_mount(self) -> None:
-        """Called when screen is mounted."""
+        """Called when widget is mounted."""
         self.calculate()
 
     def watch_principal(self, value: float) -> None:
