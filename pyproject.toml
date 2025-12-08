@@ -15,16 +15,14 @@ cli = [
     "questionary>=2.1.1",
     "rich>=14.2.0",
 ]
-tui = [
-    "textual>=0.47.0",
-    "rich>=14.2.0",
-    "plotext>=5.3.2",
+api = [
+  "fastapi>=0.115.0",
+  "uvicorn[standard]>=0.32.0",
+  "pydantic>=2.10.0",
 ]
-api = []
 
 [project.scripts]
 firefly = "firefly.cli:main"
-firefly-tui = "firefly.tui:main"
 
 [build-system]
 requires = ["uv_build>=0.9.9,<0.10.0"]
