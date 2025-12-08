@@ -1,8 +1,7 @@
-# Firefly - Ideas & Roadmap
+# LikeAFirefly - Ideas & Roadmap
 
-**Project:** Firefly - Financial Independence Calculator
+**Project:** LikeAFirefly - Financial Independence Calculator
 **Website:** [likeafirefly.com](https://likeafirefly.com) _(coming soon)_
-**CLI Command:** `firefly`
 
 ---
 
@@ -62,67 +61,124 @@ Given any 3 of these variables, solve for the 4th:
 - How much part-time income reduces portfolio withdrawal needs
 - "If I make $X/year part-time, how much less do I need saved?"
 
-## Implementation Priority
+## Implementation Roadmap
 
-1. ✅ Simple compound interest calculator (DONE)
-2. Core FIRE formula solver
-3. Visualizations for key insights
-4. Additional scenarios as needed
+### ✅ Foundation (COMPLETE)
 
-## UX/QOL Enhancements
+- ✅ Core calculator engine (compound interest with contributions)
+- ✅ Clean architecture (core/api separation)
+- ✅ FastAPI backend with auto-generated docs
+- ✅ Type-safe models with Pydantic
+- ✅ CLI interface (kept for fun)
 
-### Phase 1 (IN PROGRESS)
+### 🚀 Phase 1: Launch Calculators (IN PROGRESS)
 
-- ✅ Parameter cache with defaults (in-memory)
-- ✅ Summary + Edit specific fields
-- ✅ Better exit instructions
+**Goal:** Beautiful, functional web app with core FIRE calculators
 
-### Phase 2 (Future)
+#### 1. **"When Can I Quit?" Calculator** (Hero/Landing Page)
 
-- "What if" quick edits after calculation
-  - "What if you doubled your contribution?"
-  - "What if you started with 2x principal?"
-  - "What if return was 5% instead of 7%?"
-- Comparison mode - side-by-side scenarios
-- Export results to CSV/JSON
-- Visual improvements:
-  - Show percentage of portfolio that's interest vs contributions
-  - Show "money working for you" vs "money you put in"
-  - Add milestones: "You'll hit $X in month Y"
+- **Inputs:** Current portfolio, monthly expenses, safe withdrawal rate (4% default)
+- **Outputs:**
+  - Exact date you can retire
+  - Countdown timer
+  - Visual timeline showing "You are X% there"
+- **Status:** Next to build
 
-### Phase 3 (Future)
+#### 2. **"One More Year" Syndrome Calculator**
 
-- Quick presets: "First time buyer", "Retirement planning", etc.
-- Save/load named scenarios
-- Smart defaults based on inputs
-- Better input validation with helpful messages and examples
+- **Inputs:** Current portfolio, savings rate, monthly expenses, withdrawal rate (if still getting paycheck + portfolio)
+- **Outputs:**
+  - Table showing marginal utility of each additional year
+  - "Year 1: +$X safety, -12 months freedom"
+  - "Year 2: +$Y safety, -24 months freedom (diminishing returns)"
+  - Visualization of diminishing marginal returns
+- **Status:** Backlog
 
-## Architecture Roadmap
+#### 3. **"Real Return Reality Check"** (Global Toggle)
 
-### Current (v0.1.0)
+- **Feature:** Toggle on ALL calculators showing "Nominal vs Real Returns"
+- **Shows:**
+  - Nominal: 10% market return = "$1M → $2.5M"
+  - Real: After 3% inflation + 2% taxes = "$1M → $1.6M in today's dollars"
+- **Status:** Core feature to build into calculator engine
 
-- ✅ Core business logic (pure Python, no UI dependencies)
-- ✅ CLI with interactive questionary interface
-- ✅ ASCII visualizations with Rich and Plotext
-- ✅ Monorepo structure with clean separation
+### 🔥 Phase 2: Power User Features
 
-### Planned
+#### 4. **"F-You Money" Calculator**
 
-- 🔜 TUI (Text User Interface) with live-updating graphs (Textual framework)
-- 🔜 REST API for web integration
-- 📅 Web UI (using API)
-- 📅 Mobile app (using API)
+- **Concept:** Not full FIRE, but enough runway to quit toxic job
+- **Inputs:** Monthly expenses, risk tolerance
+- **Outputs:**
+  - 1-2 year runway amount
+  - "You need $X to walk away tomorrow"
+- **Why:** Everyone's definition is different, personalized approach
 
-### Architecture
+#### 5. **"Still Working After FI" Calculator**
 
-**Monorepo structure with clean separation:**
+- **Concept:** Reached FI but still working (visa, commitments, choice)
+- **Inputs:** FI number, current portfolio, current income, expenses
+- **Outputs:**
+  - How portfolio grows while still earning
+  - "Fat FIRE" acceleration timeline
+  - Flexibility score
 
-- `firefly.core` - Pure business logic (models + calculators, **zero external dependencies**)
-- `firefly.cli` - Terminal interface (questionary-based, optional install)
-- `firefly.api` - REST API endpoints _(future, optional install)_
+#### 6. **"Side Hustle Impact" Calculator**
 
-**Installation options:**
+- **Inputs:** Current savings, side hustle monthly income
+- **Outputs:**
+  - Years saved by investing side income
+  - "Extra $500/month = retire X years earlier"
+
+### 📊 Phase 3: Advanced Features
+
+#### 7. **"Sequence of Returns Risk" Visualizer**
+
+- **Concept:** Monte Carlo simulation with historical data
+- **Shows:** How retiring in 2008 vs 2010 affects outcomes
+- **Why:** Educational + learn Monte Carlo implementation
+- **Status:** Learning project
+
+#### 8. **Comparison Mode**
+
+- Side-by-side scenario comparison
+- "What if I save 10% more?"
+- Export to CSV/JSON
+
+#### 9. **Visual Enhancements**
+
+- Show % of portfolio that's interest vs contributions
+- "Money working for you" vs "Money you put in"
+- Milestone markers: "You'll hit $X in month Y"
+
+## Architecture
+
+### Current Stack (v0.2.0)
+
+**Backend:**
+
+- `firefly.core` - Pure Python business logic (zero UI dependencies)
+- `firefly.api` - FastAPI REST API with auto-docs
+- Stateless, serverless-ready
+
+**Frontend (To Build):**
+
+- Next.js 14 + TypeScript
+- Tailwind CSS + shadcn/ui (beautiful components)
+- Recharts (gorgeous interactive graphs)
+- Deployed on Vercel (free tier)
+
+**Hosting:**
+
+- Frontend: Vercel (free)
+- Backend: Vercel/Fly.io (free tier)
+- **Total cost: $0-5/month** (vs $30 EC2)
+
+### Installation Options
 
 - `pip install firefly` - Core only (for library use)
 - `pip install firefly[cli]` - Core + CLI
-- `pip install firefly[api]` - Core + API _(future)_
+- `pip install firefly[api]` - Core + API (FastAPI)
+
+### Domain
+
+- **likeafirefly.com** (acquired! 🎉)
